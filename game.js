@@ -22,8 +22,8 @@ var deck =  [{ code: "&#xx1F0A1", weight: 1, name: "Ace of Spades", suit: "Spade
             { code: "&#x1F0B9", weight: 9, name: "Nine of Hearts", suit: "Hearts"},
             { code: "&#x1F0BA", weight: 10, name: "Ten of Hearts", suit: "Hearts"},
             { code: "&#x1F0BB", weight: 11, name: "Jack of Hearts", suit: "Hearts"},
-            { code: "&#x1F0BD", weight: 11, name: "Queen of Hearts", suit: "Hearts"},
-            { code: "&#x1F0BE", weight: 11, name: "King of Hearts", suit: "Hearts"},
+            { code: "&#x1F0BD", weight: 12, name: "Queen of Hearts", suit: "Hearts"},
+            { code: "&#x1F0BE", weight: 13, name: "King of Hearts", suit: "Hearts"},
             { code: '&#x1F0C1', weight: 1, name: "Ace of Diamonds", suit: 'Diamonds'},
             { code: '&#x1F0C2', weight: 2, name: "Two of Diamonds", suit: 'Diamonds'},
             { code: '&#x1F0C3', weight: 3, name: "Three of Diamonds", suit: 'Diamonds'},
@@ -52,65 +52,103 @@ var deck =  [{ code: "&#xx1F0A1", weight: 1, name: "Ace of Spades", suit: "Spade
             { code:'&#x1F0DE', weight: 13, name:'King of Clubs', suit:'Clubs'}
           ];
 
-function dealHand(array, num){
-  var arrayCopy = array.slice();
-  if(num===undefined) {
-    num = 1;
-  }
-  var randArray = [];
-  for(var i=0;i<num;i++){
-    var index = Math.floor(Math.random()*arrayCopy.length);
-    randArray.push(arrayCopy.splice(index,1)[0]);
-  }
-  return randArray;
+function randNum(array){
+  max = array.length;
+  return Math.floor(Math.random()*(array.length-1));
 }
-function contains(array, num){
-  var contains=false;
-  for(var i=0;i<array.length;i++)
-    if(array[i].weight===num)
-      contains=true;
-  return contains;
-}
-// function scoreHand(array) {
-//   if (array[0].weight === array[1].weight) {
-//     return true;
-//   } else {
-//     return false;
+
+var dealDeck = deck.slice(0);
+
+var dealtCards = []
+
+dealtCards = dealDeck.splice(randNum(deck),1);
+
+console.log(dealtCards);
+
+
+
+// function checkHand(array){
+//      if(array[0].weight === array[1].weight){
+//        return true;
+//      } else {
+//        return false;
+//      };
+//    };
+//
+// console.log(checkHand(dealtCards))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function dealHand(array, num){
+//   var arrayCopy = array.slice();
+//   if(num===undefined) {
+//     num = 1;
 //   }
+//   var randArray = [];
+//   for(var i=0;i<num;i++){
+//     var index = Math.floor(Math.random()*arrayCopy.length);
+//     randArray.push (arrayCopy.splice (index,1) [0]);
+//   }
+//   return randArray;
 // }
-function scoreHand(array) {
- console.log("You were dealt " + array[0].name +" and "+ array[1].name);
- if (array[0].weight === array[1].weight) {
-   console.log("You fucking won!")
-   return true;
- } else {
-   switch(Math.floor(Math.random()*5)){
-     case 1: {console.log("You are terrible at this");}
-             break;
-     case 2: {console.log("Really?");}
-             break;
-     case 3: {console.log("You should just give up.");}
-             break;
-     case 4: {console.log("Wow, still nothing?");}
-             break;
-     case 5: {console.log("Just kill yourself");}
-             break;
-     default: {console.log('Weak')};
-   }
-   return false;
- }
-}
-
-
-
-hand = dealHand(deck,2);
-console.log("Your hand is:");
-for(var i =0;i<hand.length;i++){
-  console.log(hand[i].name);
-}
-var pair = scoreHand(hand);
-// if(pair){
-//   console.log("You got a hand");
-// } else {
-//   console.log("You didn't get a pair");
+//
+// function contains(array, num){
+//   var contains=false;
+//   for(var i=0;i<array.length;i++)
+//     if(array[i].weight===num)
+//       contains=true;
+//   return contains;
 // }
+//
+// function scoreHand(array) {
+//  console.log("You were dealt " + array[0].name +" and "+ array[1].name);
+//  if (array[0].weight === array[1].weight) {
+//    console.log("You fucking won!")
+//    return true;
+//  } else {
+//    switch(Math.floor(Math.random()*5)){
+//      case 1: {console.log("You are terrible at this");}
+//              break;
+//      case 2: {console.log("Really?");}
+//              break;
+//      case 3: {console.log("You should just give up.");}
+//              break;
+//      case 4: {console.log("Wow, still nothing?");}
+//              break;
+//      case 5: {console.log("Just kill yourself");}
+//              break;
+//      default: {console.log('Weak')};
+//    }
+//    return false;
+//  }
+// }
+//
+//
+//
+// hand = dealHand(deck,2);
+// console.log("Your hand is:");
+// for(var i =0;i<hand.length;i++){
+//   console.log(hand[i].name);
+// }
+// var pair = scoreHand(hand);
+//
