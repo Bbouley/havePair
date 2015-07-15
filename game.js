@@ -54,16 +54,33 @@ var deck =  [{ code: "&#xx1F0A1", weight: 1, name: "Ace of Spades", suit: "Spade
 
 function randNum(array){
   max = array.length;
-  return Math.floor(Math.random()*(array.length-1));
+  return Math.floor(Math.random()*max);
 }
 
-var dealDeck = deck.slice(0);
+var dealtCards = [];
 
-var dealtCards = []
+function dealCards(array, num){
+  var dealDeck = array.slice(0);
+  for (i=0; i<num; i++){
+  dealtCards.push(dealDeck.splice(randNum(dealDeck),1)[0]);
+} return dealtCards;
+}
 
-dealtCards = dealDeck.splice(randNum(deck),1);
+console.log(dealCards(deck,3))
 
-console.log(dealtCards);
+function checkPair(array){
+  for (i=0; i<array.length; i++){
+    console.log(array[i].weight)
+  };
+};
+
+checkPair(dealtCards);
+
+// console.log(dealCards(deck,2));
+
+
+
+
 
 
 
