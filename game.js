@@ -66,6 +66,12 @@ function dealCards(array, num){
 } return dealtCards;
 };
 
+function hi(){
+var select = document.getElementsByTagName('p')[1];
+select.innerText = 'testing'
+}
+
+hi();
 
 
 
