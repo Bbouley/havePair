@@ -66,15 +66,23 @@ function dealCards(array, num){
 } return dealtCards;
 }
 
-console.log(dealCards(deck,3))
+console.log(dealCards(deck,5))
+
+
 
 function checkPair(array){
-  for (i=0; i<array.length; i++){
-    console.log(array[i].weight)
-  };
+    for (i=0; i<array.length; i++){
+    var card = []
+    card = array.slice([i])[0];
+    for(j=0; j<array.length;j++){
+     if((card.weight === array[j].weight)&&(card.suit != array[j].suit)){
+       return 'you got the ' + card.name + ' and the ' + array[j].name;
+     }
+   }
+ }; return 'you got nothing';
 };
 
-checkPair(dealtCards);
+console.log(checkPair(dealtCards));
 
 // console.log(dealCards(deck,2));
 
