@@ -64,9 +64,9 @@ function dealCards(array, num){
   for (i=0; i<num; i++){
   dealtCards.push(dealDeck.splice(randNum(dealDeck),1)[0]);
 } return dealtCards;
-}
+};
 
-console.log(dealCards(deck,5))
+
 
 
 
@@ -77,12 +77,13 @@ function checkPair(array){
     for(j=0; j<array.length;j++){
      if((card.weight === array[j].weight)&&(card.suit != array[j].suit)){
        return 'you got the ' + card.name + ' and the ' + array[j].name;
-     }
-   }
- }; return 'you got nothing';
+     }  }
+ } return 'you got nothing';
 };
 
-console.log(checkPair(dealtCards));
+// console.log(checkPair(dealtCards));
+
+
 
 // console.log(dealCards(deck,2));
 
